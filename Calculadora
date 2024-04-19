@@ -1,51 +1,83 @@
-// Calculadora
-
-#include <math.h>
 #include <stdio.h>
-
-int main() {
-  float num1, num2;
-
-  char operacao;
-
-  printf("Digite um número: \n");
-  scanf("%f", &num1);
-
-  printf("\nDIgite outro número: \n");
-  scanf("%f", &num2);
-
-  printf("\nDigite o operador\n\n(+) Para Adição\n(-) Para Subtração\n(*) Para Multiplicação\n(/) Para Divisão\n(,) Para Resto da Divisão\n\nQual operação deseja: ");
-  scanf(" %c", &operacao);
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
 
 
-  // Fazer a soma
-  if (operacao == '+') {
-    printf("\nO resultado da soma é: %.2f", num1 + num2);
-  }
+//Calculadora
+
+int main () {
+
+    int a, b, adi, sub, multi, divi, pot;
+    float rq1, rq2; 
+    char op;
+    char continuar[50];
+
+    do {
+
+        printf("\nDigite um numero: \n");
+        scanf("%i", &a);
+
+        printf("Digite outro numero: \n");
+        scanf("%i", &b);
+
+        printf("\nAgora vamos escolher a operacao\n\n(+) Para Adicao\n(-) Para Subtracao\n(*) Para Multiplicacao\n(/) Para Divisao\n(|) Para Raiz Quadrada\n(^) Para potenciacao\n\nQual operacao deseja?\n");
+        scanf(" %c", &op);
+
+            if (op == '+') {
+
+                adi = a + b;
+
+                printf("\nResultado da adicao: %i %c %i = %i\n", a, op, b, adi);
+
+            }
+
+            if (op == '-') {
+
+                sub = a - b;
+
+                printf("\nResultado da subtacao: %i %c %i = %i\n", a, op, b, sub);
+            }
+
+            if (op == '*'){
+
+                multi = a * b;
+
+                printf("\nResultado da multiplicacao: %i %c %i = %i\n", a, op, b, multi);
+
+            }
+
+            if (op == '/') {
+
+                divi = a / b;
+
+                printf("\nResultado da divisao: %i %c %i = %i\n", a, op, b, divi);
+            }
+
+            if(op == '|'){
+
+                rq1 = sqrt (a);
+                rq2 = sqrt (b);
+
+                printf("\nA Raiz quadrada de %i e: %.2f\n", a, rq1);
+                printf("\nA Raiz quadrada de %i e: %.2f\n", b, rq2);
+            }
+
+            if(op == '^') {
+
+                pot = pow (a,b);
+
+                printf("\n%i Elevado a %i e: %i\n\n", a, b, pot);
+
+            }
+
+            printf("\nDeseja continuar Sim ou Não?\n");
+            scanf(" %s", continuar);
+
+    } while  (strcmp(continuar, "sim") == 0 || strcmp(continuar, "Sim") == 0);
+        
+        printf("\nObrigado por usar nossa calculadora\n");
 
 
-  // Fazer a subtração
-  if (operacao == '-') {
-    printf("\nO resultado da subtração é: %.2f", num1 - num2);
-  }
-
-
-  // Fazer a multiplicação
-  if (operacao == '*') {
-    printf("\nO resultado da multiplicação é: %.2f", num1 * num2);
-  }
-
-
-  // Fazer a divisão
-  if (operacao == '/') {
-    printf("\nO resultado da divisão é: %.2f", num1 / num2);
-  }
-
-
-  // Fazer o resto da divisão
-  if (operacao == '%') {
-    printf("\nO resultado do resto é: %.2f", fmod(num1, num2));
-  }
-
-  return 0;
+    return 0 ;
 }
